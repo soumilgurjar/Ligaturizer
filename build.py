@@ -4,7 +4,7 @@
 # Uses ligaturize.py to do the heavy lifting; this file basically just contains
 # the mapping from input font paths to output fonts.
 
-#### User configurable settings ####
+# User configurable settings #
 
 # For the prefixed_fonts below, what word do we stick in front of the font name?
 LIGATURIZED_FONT_NAME_PREFIX = "Liga"
@@ -22,61 +22,57 @@ COPY_CHARACTER_GLYPHS = False
 SCALE_CHARACTER_GLYPHS_THRESHOLD = 0.1
 
 # Where to put the generated fonts.
-OUTPUT_DIR = 'fonts/output/'
+OUTPUT_DIR = "fonts/output/"
 
-#### Fonts that should be prefixed with "Liga" when ligaturized. ####
+# Fonts that should be prefixed with "Liga" when ligaturized. #
 # Don't put fonts licensed under UFL here, and don't put fonts licensed under
 # SIL OFL here either unless they haven't specified a Reserved Font Name.
 
 prefixed_fonts = [
-  # Apache 2.0 license
-  'fonts/codeface/fonts/cousine/*.ttf',
-  'fonts/codeface/fonts/droid-sans-mono/*.ttf',
-  'fonts/codeface/fonts/meslo/*.ttf',
-  'fonts/codeface/fonts/roboto-mono/*.ttf',
-
-  # MIT license
-  'fonts/codeface/fonts/dejavu-sans-mono/*.ttf',
-  'fonts/codeface/fonts/hack/*.ttf',
-
-  # SIL OFL with no Reserved Font Name
-  'fonts/codeface/fonts/edlo/*.ttf',
-  'fonts/codeface/fonts/inconsolata/*.ttf',
-  'fonts/spacemono/fonts/*.ttf',
-  'fonts/Montserrat/fonts/otf/*.otf',
-  'fonts/Montserrat/fonts/ttf/*.ttf',
+    # # Apache 2.0 license
+    # "fonts/codeface/fonts/cousine/*.ttf",
+    # "fonts/codeface/fonts/droid-sans-mono/*.ttf",
+    # "fonts/codeface/fonts/meslo/*.ttf",
+    # "fonts/codeface/fonts/roboto-mono/*.ttf",
+    # # MIT license
+    # "fonts/codeface/fonts/dejavu-sans-mono/*.ttf",
+    # "fonts/codeface/fonts/hack/*.ttf",
+    # # SIL OFL with no Reserved Font Name
+    # "fonts/codeface/fonts/edlo/*.ttf",
+    # "fonts/codeface/fonts/inconsolata/*.ttf",
+    "fonts/spacemono/fonts/*.ttf",
+    # "fonts/Montserrat/fonts/otf/*.otf",
+    # "fonts/Montserrat/fonts/ttf/*.ttf",
 ]
 
-#### Fonts that need to be renamed. ####
+# Fonts that need to be renamed. #
 # These are fonts that either have name collisions with the prefixed_fonts
 # above, or are released under licenses that permit modification only if we
 # change the name of the modified fonts.
 
 renamed_fonts = {
-  # This doesn't have a reserved name, but if we don't rename it it'll collide
-  # with its sibling Fantasque Sans Mono Normal, listed above.
-  'fonts/FantasqueSansMono-Normal/*.otf': 'Liga Fantasque Sans Mono',
-  'fonts/FantasqueSansMono-Normal/*.ttf': 'Liga Fantasque Sans Mono',
-  'fonts/FantasqueSansMono-NoLoopK/*.otf': 'Liga Fantasque Sans Mono NoLoopK',
-  'fonts/FantasqueSansMono-NoLoopK/*.ttf': 'Liga Fantasque Sans Mono NoLoopK',
-  'fonts/FantasqueSansMono-LargeLineHeight/*.otf': 'Liga Fantasque Sans Mono LargeLineHeight',
-  'fonts/FantasqueSansMono-LargeLineHeight/*.ttf': 'Liga Fantasque Sans Mono LargeLineHeight',
-  'fonts/FantasqueSansMono-LargeLineHeight-NoLoopK/*.otf': 'Liga Fantasque Sans Mono LargeLineHeight NoLoopK',
-  'fonts/FantasqueSansMono-LargeLineHeight-NoLoopK/*.ttf': 'Liga Fantasque Sans Mono LargeLineHeight NoLoopK',
-
-  # SIL OFL with reserved name
-  'fonts/codeface/fonts/anonymous-pro/*.ttf': 'Liganymous',
-  'fonts/plex/IBM-Plex-Mono/fonts/complete/ttf/*.ttf': 'Ligalex Mono',
-  'fonts/codeface/fonts/oxygen-mono/*.otf': 'Liga O2 Mono',
-  'fonts/codeface/fonts/source-code-pro/*.ttf': 'LigaSrc Pro',
-  'fonts/SourceCodeVariable*': 'LigaSrc Variable',
-  'fonts/Hermit/*.otf': 'Ligamit',
-
-  # UFL
-  'fonts/codeface/fonts/ubuntu-mono/*.ttf': 'Ubuntu Mono Ligaturized',
+    # # This doesn't have a reserved name, but if we don't rename it it'll collide
+    # # with its sibling Fantasque Sans Mono Normal, listed above.
+    # "fonts/FantasqueSansMono-Normal/*.otf": "Liga Fantasque Sans Mono",
+    # "fonts/FantasqueSansMono-Normal/*.ttf": "Liga Fantasque Sans Mono",
+    # "fonts/FantasqueSansMono-NoLoopK/*.otf": "Liga Fantasque Sans Mono NoLoopK",
+    # "fonts/FantasqueSansMono-NoLoopK/*.ttf": "Liga Fantasque Sans Mono NoLoopK",
+    # "fonts/FantasqueSansMono-LargeLineHeight/*.otf": "Liga Fantasque Sans Mono LargeLineHeight",
+    # "fonts/FantasqueSansMono-LargeLineHeight/*.ttf": "Liga Fantasque Sans Mono LargeLineHeight",
+    # "fonts/FantasqueSansMono-LargeLineHeight-NoLoopK/*.otf": "Liga Fantasque Sans Mono LargeLineHeight NoLoopK",
+    # "fonts/FantasqueSansMono-LargeLineHeight-NoLoopK/*.ttf": "Liga Fantasque Sans Mono LargeLineHeight NoLoopK",
+    # # SIL OFL with reserved name
+    # "fonts/codeface/fonts/anonymous-pro/*.ttf": "Liganymous",
+    # "fonts/plex/IBM-Plex-Mono/fonts/complete/ttf/*.ttf": "Ligalex Mono",
+    # "fonts/codeface/fonts/oxygen-mono/*.otf": "Liga O2 Mono",
+    # "fonts/codeface/fonts/source-code-pro/*.ttf": "LigaSrc Pro",
+    # "fonts/SourceCodeVariable*": "LigaSrc Variable",
+    # "fonts/Hermit/*.otf": "Ligamit",
+    # # UFL
+    # "fonts/codeface/fonts/ubuntu-mono/*.ttf": "Ubuntu Mono Ligaturized",
 }
 
-#### Fonts we can't ligaturize. ####
+# Fonts we can't ligaturize. #
 # Fonts that we can't ligaturize because their licences do not permit derivative
 # works of any kind.
 # Individual users may still be able to make ligaturized versions for personal
@@ -87,37 +83,45 @@ renamed_fonts = {
 #   'SFMono*',
 # ]
 
-#### No user serviceable parts below this line. ####
+# No user serviceable parts below this line. #
 
 import sys
 from glob import glob
 from ligaturize import ligaturize_font
 
-if '--copy-character-glyphs' in sys.argv:
-  COPY_CHARACTER_GLYPHS=True
-  OUTPUT_DIR='fonts/output-with-characters'
+if "--copy-character-glyphs" in sys.argv:
+    COPY_CHARACTER_GLYPHS = True
+    OUTPUT_DIR = "fonts/output-with-characters"
 
 
 for pattern in prefixed_fonts:
-  files = glob(pattern)
-  if not files:
-    print("Error: pattern '%s' didn't match any files." % pattern)
-    sys.exit(1)
-  for input_file in files:
-    ligaturize_font(
-      input_file, ligature_font_file=None, output_dir=OUTPUT_DIR,
-      prefix=LIGATURIZED_FONT_NAME_PREFIX, output_name=None,
-      copy_character_glyphs=COPY_CHARACTER_GLYPHS,
-      scale_character_glyphs_threshold=SCALE_CHARACTER_GLYPHS_THRESHOLD)
+    files = glob(pattern)
+    if not files:
+        print("Error: pattern '%s' didn't match any files." % pattern)
+        sys.exit(1)
+    for input_file in files:
+        ligaturize_font(
+            input_file,
+            ligature_font_file=None,
+            output_dir=OUTPUT_DIR,
+            prefix=LIGATURIZED_FONT_NAME_PREFIX,
+            output_name=None,
+            copy_character_glyphs=COPY_CHARACTER_GLYPHS,
+            scale_character_glyphs_threshold=SCALE_CHARACTER_GLYPHS_THRESHOLD,
+        )
 
-for pattern,name in renamed_fonts.items():
-  files = glob(pattern)
-  if not files:
-    print("Error: pattern '%s' didn't match any files." % pattern)
-    sys.exit(1)
-  for input_file in files:
-    ligaturize_font(
-      input_file, ligature_font_file=None, output_dir=OUTPUT_DIR,
-      prefix=None, output_name=name,
-      copy_character_glyphs=COPY_CHARACTER_GLYPHS,
-      scale_character_glyphs_threshold=SCALE_CHARACTER_GLYPHS_THRESHOLD)
+for pattern, name in renamed_fonts.items():
+    files = glob(pattern)
+    if not files:
+        print("Error: pattern '%s' didn't match any files." % pattern)
+        sys.exit(1)
+    for input_file in files:
+        ligaturize_font(
+            input_file,
+            ligature_font_file=None,
+            output_dir=OUTPUT_DIR,
+            prefix=None,
+            output_name=name,
+            copy_character_glyphs=COPY_CHARACTER_GLYPHS,
+            scale_character_glyphs_threshold=SCALE_CHARACTER_GLYPHS_THRESHOLD,
+        )
